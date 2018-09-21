@@ -9,7 +9,7 @@
 package edu.miracosta.cs113;
 import java.util.StringTokenizer;
 
-public class Term
+public class Term implements Cloneable
 {
     private int exponent;
     private int coefficient;
@@ -42,6 +42,10 @@ public class Term
     //String constructor.
     public Term(String term)
     {
+        //default parameters.
+        exponent = 0;
+        coefficient = 0;
+        variableCharacter = "";
         //Tokenizer that will separate the coefficient and exponent.
         StringTokenizer tok = new StringTokenizer(term , "^//x");
 
@@ -66,11 +70,17 @@ public class Term
         //Determine if the number has an x.
         for(int i = 0; i < term.length(); i++)
         {
-            if( Character.toString( term.charAt(i) ).equals("x") )
+            if( Character.toString( term.charAt(i) ).equals("x"))
             {
                 variableCharacter = "x";
             }
 
+        }
+
+        if (variableCharacter.equals("x") && coefficient==0  && exponent == 0)
+        {
+            coefficient = 1;
+            exponent = 1;
         }
 
     }
@@ -120,12 +130,14 @@ public class Term
         this.variableCharacter = anotherTerm.getVariableCharacter();
     }
     //clones the object.
-    public Object clone()
+    public Term clone()
     {
         try
         {
-            return super.clone();
-        } catch (CloneNotSupportedException e)
+            Term clonedTerm = (Term) super.clone();
+            return clonedTerm;
+        }
+        catch (CloneNotSupportedException e)
         {
             return null;
         }
@@ -167,7 +179,93 @@ public class Term
     @Override
     public String toString()
     {
-        String message = "Exponent:"+ exponent + " Coefficient:" + coefficient + "variable: " + variableCharacter ;
+        String message = "";
+        if( coefficient > 1)
+        {
+            if(exponent > 0)
+            {
+                if(exponent == 1)
+                {
+                    message = "+" + coefficient + "x";
+                }
+                else if(exponent > 1)
+                {
+                    message = "+" + coefficient + "x"+ "^" + exponent;
+                }
+            }
+            else if(exponent == 0)
+            {
+                message = "+" + coefficient + "";
+            }
+
+            else if (exponent < 0)
+            {
+                    message = "+" + coefficient + "x"+ "^ " + exponent;
+            }
+
+        }
+
+        else if(coefficient == 1)
+        {
+            if(exponent != 0)
+            {
+                if(exponent == 1)
+                {
+                    message = "+x";
+                }
+                else
+                {
+                    message = "+" + "x^" + exponent;
+                }
+            }
+            else if(exponent == 0)
+            {
+                message = "+" + coefficient + "";
+            }
+        }
+
+        else if(coefficient == -1)
+        {
+            if(exponent != 0)
+            {
+                if(exponent == 1)
+                {
+                    message = "-x";
+                }
+                else
+                {
+                    message = "-" + "x^" + exponent;
+                }
+            }
+            else if(exponent == 0)
+            {
+                message = "+" + coefficient + "";
+            }
+        }
+        else if(coefficient < -1)
+        {
+            if(exponent != 0)
+            {
+                if(exponent == 1)
+                {
+                    message =  coefficient + "x";
+                }
+                else
+                {
+                    message = "" + coefficient + "x^" + exponent;
+                }
+            }
+            else if(exponent == 0)
+            {
+                message = "" + coefficient + "";
+            }
+        }
+        else if(coefficient == 0)
+        {
+            message = "";
+        }
+
+
         return message;
     }
 }
