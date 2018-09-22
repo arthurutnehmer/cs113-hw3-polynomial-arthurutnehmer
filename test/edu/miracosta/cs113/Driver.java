@@ -97,7 +97,7 @@ public class Driver
         StringTokenizer tok = new StringTokenizer(polynomialToDecode , " ");
         while(tok.hasMoreTokens())
         {
-            polynomial1.addTerm(new Term(tok.nextToken()));
+            polynomial2.addTerm(new Term(tok.nextToken()));
         }
         polynomial2User = new Polynomial();
         tok = new StringTokenizer(polynomialToDecode , " ");
@@ -129,6 +129,34 @@ public class Driver
             System.out.println(polynomial2User);
             System.out.println("---------------Polynomial 2-------------");
             System.out.println("----------------------------------------");
+        }
+    }
+
+    public void addToPolynomial1(String polynomialToDecode)
+    {
+        StringTokenizer tok = new StringTokenizer(polynomialToDecode , " ");
+        while(tok.hasMoreTokens())
+        {
+            polynomial1.addTerm(new Term(tok.nextToken()));
+        }
+        tok = new StringTokenizer(polynomialToDecode , " ");
+        while(tok.hasMoreTokens())
+        {
+            polynomial1User.addTermFromUser(new Term(tok.nextToken()));
+        }
+    }
+
+    public void addToPolynomial2(String polynomialToDecode)
+    {
+        StringTokenizer tok = new StringTokenizer(polynomialToDecode , " ");
+        while(tok.hasMoreTokens())
+        {
+            polynomial2.addTerm(new Term(tok.nextToken()));
+        }
+        tok = new StringTokenizer(polynomialToDecode , " ");
+        while(tok.hasMoreTokens())
+        {
+            polynomial2User.addTermFromUser(new Term(tok.nextToken()));
         }
     }
 }
