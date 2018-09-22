@@ -48,8 +48,7 @@ public class Polynomial
     //Will add terms from largest to smallest.
     public void addTermFromUser(Term term)
     {
-        Polynomial tmpPoly = new Polynomial(term);
-        this.add(tmpPoly);
+        terms.add(term);
     }
 
     public Term getTerm(int index)

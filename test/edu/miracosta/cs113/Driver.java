@@ -55,17 +55,23 @@ public class Driver
     {
         Polynomial tmpPolynomial = new Polynomial(polynomial1);
         tmpPolynomial.add(polynomial2);
-        System.out.println(tmpPolynomial.toString());
+        System.out.println("***********************Added Polynomials***************************");
+        System.out.println("Polynomial 1: " + polynomial1User);
+        System.out.println("Polynomial 2: " + polynomial2User);
+        System.out.println("       Equal: " + tmpPolynomial.toString());
+        System.out.println("***********************Added Polynomials***************************");
     }
 
     public void clearPolynomial1()
     {
         polynomial1.clear();
+        polynomial1User.clear();
     }
 
     public void clearPolynomial2()
     {
         polynomial2.clear();
+        polynomial2User.clear();
     }
 
     public void enterPolynomial1AllAtOnce(String polynomialToDecode)
@@ -77,12 +83,11 @@ public class Driver
             polynomial1.addTerm(new Term(tok.nextToken()));
         }
 
-        //Feeds to the polynomial.
         polynomial1User = new Polynomial();
         tok = new StringTokenizer(polynomialToDecode , " ");
         while(tok.hasMoreTokens())
         {
-            polynomial1User.addTerm(new Term(tok.nextToken()));
+            polynomial1User.addTermFromUser(new Term(tok.nextToken()));
         }
 
     }
@@ -94,14 +99,12 @@ public class Driver
         {
             polynomial1.addTerm(new Term(tok.nextToken()));
         }
-        //Feeds to the polynomial.
         polynomial2User = new Polynomial();
         tok = new StringTokenizer(polynomialToDecode , " ");
         while(tok.hasMoreTokens())
         {
-            polynomial2User.addTerm(new Term(tok.nextToken()));
+            polynomial2User.addTermFromUser(new Term(tok.nextToken()));
         }
-
 
     }
 
@@ -109,7 +112,11 @@ public class Driver
     {
         if(polynomial1User != null)
         {
+            System.out.println("---------------Polynomial 1-------------");
+            System.out.println("----------------------------------------");
             System.out.println(polynomial1User);
+            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------");
         }
     }
 
@@ -117,7 +124,11 @@ public class Driver
     {
         if(polynomial2User != null)
         {
+            System.out.println("---------------Polynomial 2-------------");
+            System.out.println("----------------------------------------");
             System.out.println(polynomial2User);
+            System.out.println("---------------Polynomial 2-------------");
+            System.out.println("----------------------------------------");
         }
     }
 }
