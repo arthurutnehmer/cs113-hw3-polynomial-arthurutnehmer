@@ -50,3 +50,5 @@ out/
 
 # mac os metafiles
 .DS_STORE
+
+[![Build Status](https://travis-ci.com/MiraCostaCS-Nery/cs113-hw3-polynomial-arthurutnehmer.svg?token=N5NAyhrpuV9Ag1DXENbj&branch=master)](https://travis-ci.com/MiraCostaCS-Nery/cs113-hw3-polynomial-arthurutnehmer)
