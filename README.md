@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/MiraCostaCS-Nery/cs113-hw3-polynomial-arthurutnehmer.svg?token=N5NAyhrpuV9Ag1DXENbj&branch=master)](https://travis-ci.com/MiraCostaCS-Nery/cs113-hw3-polynomial-arthurutnehmer)
 # CS113-HW03-Polynomial
 ## HW #3 for CS113 - Polynomial ADT, Implementation, and Menu Program Demo
 
@@ -26,11 +27,12 @@ The menu will allow the user to modify, clear, build, and add polynomials repeat
 
 Polynomial Program – UML Class Relationship Diagram
 
-[ PLACE IMAGE HERE ]
+![Alt text](/CS113-HW03-Polynomial.jpg?raw=true)
+
 
 Polynomial Program – UML Driver Sequence Diagram
+![Alt text](/Polynomial Program – UML Driver Sequence Diagram.jpg?raw=true)
 
-[ PLACE IMAGE HERE ]
 
 
 ----------
@@ -43,4 +45,4 @@ Polynomial Program – UML Driver Sequence Diagram
 >- For the ADT implementations (basically all classes but the driver, for this program) make sure to create all the required methods: setters, getters, toString, equals, constructors, etc.
 >- Also, make sure to look at the JUnit tests as a guide of what to implement, in case you're not sure.  Your code must pass all tests, but you can comment out tests as you build so you can build one method/part at a time! ***Build incrementally, writing a lot of code without knowing it works is not good strategy!***
 >- Checkout the [Mastering Markdown guide](https://guides.github.com/features/mastering-markdown/) for help on how to insert images.  This markdown file, `README.md`, in the repository is the one you want to edit, and you can edit it in IntelliJ (it's just a text file)!
->- Think of your user! What is a simple, straightforward, easy way for them to input the polynomials into the program? What methods may help clean up your code and provide flexibility to your classes?  What data and in what format do you show to your user in the console output so that it is clear what is going on?
+>- Think of your user! What is a simple, straig[![Build Status](https://travis-ci.com/MiraCostaCS-Nery/cs113-hw3-polynomial-arthurutnehmer.svg?token=N5NAyhrpuV9Ag1DXENbj&branch=master)](https://travis-ci.com/MiraCostaCS-Nery/cs113-hw3-polynomial-arthurutnehmer)htforward, easy way for them to input the polynomials into the program? What methods may help clean up your code and provide flexibility to your classes?  What data and in what format do you show to your user in the console output so that it is clear what is going on?
