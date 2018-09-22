@@ -9,7 +9,7 @@
 package edu.miracosta.cs113;
 import java.util.StringTokenizer;
 
-public class Term implements Cloneable
+public class Term implements Cloneable,Comparable
 {
     private int exponent;
     private int coefficient;
@@ -49,23 +49,40 @@ public class Term implements Cloneable
         //Tokenizer that will separate the coefficient and exponent.
         StringTokenizer tok = new StringTokenizer(term , "^//x");
 
-        //Do while their are still numbers. *will remove all numbers from the string and seperate them into
+        //Do while their are still numbers. *will remove all numbers from the string and separate them into
         //exponents and coefficients.
         boolean coefficientFound = false;
         while (tok.hasMoreTokens())
         {
-
             if(!coefficientFound && tok.hasMoreTokens()  )
             {
-                coefficient = Integer.parseInt(tok.nextToken());
-                coefficientFound = true;
+                String nextToken = tok.nextToken();
+                //If positive and has no leading number, then the coefficient is x.
+                if(nextToken.equals("+"))
+                {
+                    coefficient = 1;
+                    coefficientFound = true;
+                }
+                //If negative and has no leading number, then the coefficient is -x.
+                else if(nextToken.equals("-"))
+                {
+                    coefficient = -1;
+                    coefficientFound = true;
+                }
+                //else, the number (coefficient) is before x.
+                else
+                 {
+                    coefficient = Integer.parseInt(nextToken);
+                    coefficientFound = true;
+                 }
             }
-
+            //once the coefficient is found, we go to the exponent.
             else if(coefficientFound && tok.hasMoreTokens() )
             {
                 exponent = Integer.parseInt( tok.nextToken());
             }
         }
+
 
         //Determine if the number has an x.
         for(int i = 0; i < term.length(); i++)
@@ -76,10 +93,9 @@ public class Term implements Cloneable
             }
 
         }
-
-        if (variableCharacter.equals("x") && coefficient==0  && exponent == 0)
+        //AUTO EXPONENT OF 1 FOR ALL X WITH NO EXPONENT.
+        if(variableCharacter.equals("x") && exponent==0)
         {
-            coefficient = 1;
             exponent = 1;
         }
 
