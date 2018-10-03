@@ -27,7 +27,7 @@ The menu will allow the user to modify, clear, build, and add polynomials repeat
 
 Polynomial Program – UML Class Relationship Diagram
 
-![Alt text](/cs113-hw3-polynomial-arthurutnehmer/DOC/src/CS113-HW03-Polynomial.jpg?raw=true)
+![Alt text](/src/CS113-HW03-Polynomial.jpg?raw=true)
 
 
 Polynomial Program – UML Driver Sequence Diagram
